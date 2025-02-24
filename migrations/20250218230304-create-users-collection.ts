@@ -11,7 +11,7 @@ module.exports = {
         validator: {
           $jsonSchema: {
             bsonType: "object",
-            required: ["firstName", "lastName", "email", "passwordHash", "role", "createdAt", "updatedAt"],
+            required: ["firstName", "passwordHash", "role", "createdAt", "updatedAt"],
             properties: {
               _id: { bsonType: "objectId", description: "Unique identifier" },
               firstName: { bsonType: "string", description: "First name of the user" },

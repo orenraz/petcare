@@ -6,19 +6,25 @@ import { AppController } from './app.controller';
 import baseConfig from './config/base.config';
 import productionConfig from './config/production.config';
 import developmentConfig from './config/development.config';
+import { UserModule } from './modules/users/users.module';
 
+// TODO: break down each init into a seperate function
 @Module({
-  imports: [MongooseModule.forRoot(
-    'mongodb://13.51.162.106:27017/petcare', {}),
-  ConfigModule.forRoot({
-    isGlobal: true,
-    load: [
-      baseConfig, 
-      process.env.NODE_ENV === 'production' ? productionConfig : developmentConfig
-    ],
-    envFilePath: [`.env.${process.env.NODE_ENV || 'development'}`, '.env']   // If NODE_ENV is set, use the corresponding .env file; otherwise, fall back to .env.development
-  }),
-    HealthModule
+  imports: [
+    // TODO: take this data from env file
+    MongooseModule.forRoot(
+    'mongodb://13.51.162.106:27017/petcare', {
+    }),
+    ConfigModule.forRoot({
+      isGlobal: true,
+      load: [
+        baseConfig, 
+        process.env.NODE_ENV === 'production' ? productionConfig : developmentConfig
+      ],
+      envFilePath: [`.env.${process.env.NODE_ENV || 'development'}`, '.env']   // If NODE_ENV is set, use the corresponding .env file; otherwise, fall back to .env.development
+    }),
+    HealthModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [],
