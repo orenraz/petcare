@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
 import { HealthModule } from './modules/health/health.module';
@@ -7,6 +7,7 @@ import baseConfig from './config/base.config';
 import productionConfig from './config/production.config';
 import developmentConfig from './config/development.config';
 import { UserModule } from './modules/users/users.module';
+import { LoggerMiddleware } from './common/middlewares/logger.middleware';
 
 // TODO: break down each init into a seperate function
 @Module({
@@ -29,4 +30,8 @@ import { UserModule } from './modules/users/users.module';
   controllers: [AppController],
   providers: [],
 })
-export class AppModule { }
+export class AppModule implements NestModule { 
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(LoggerMiddleware).forRoutes('*');
+  }
+}

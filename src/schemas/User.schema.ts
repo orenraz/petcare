@@ -17,7 +17,7 @@ export class User {
     email?: string;
     
     @Prop({ required: true })
-    passwordHash: number;
+    passwordHash: string;
     
     @Prop({ type: String, enum: Object.values(UserRole), required: true })
     role: UserRole;
