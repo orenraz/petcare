@@ -18,8 +18,10 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "migrate:up": "migrate-mongo up",
-    "migrate:down": "migrate-mongo down",
+    "migrate-up:development": "cross-env MIGRATION_ENV=development MIGRATE_MONGO_CONFIG=./migrate-mongo-config.development.js migrate-mongo up",
+    "migrate-up:production": "cross-env MIGRATION_ENV=production MIGRATE_MONGO_CONFIG=./migrate-mongo-config.production.js migrate-mongo up",
+    "migrate-down:development": "cross-env MIGRATION_ENV=development MIGRATE_MONGO_CONFIG=./migrate-mongo-config.development.js migrate-mongo down",
+    "migrate-down:production": "cross-env MIGRATION_ENV=production MIGRATE_MONGO_CONFIG=./migrate-mongo-config.production.js migrate-mongo down",
     "migrate:create": "migrate-mongo create",
     "kill": "npx kill-port 3000"
   },

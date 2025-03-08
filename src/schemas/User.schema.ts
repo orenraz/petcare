@@ -1,4 +1,6 @@
 import { Schema, Prop, SchemaFactory } from "@nestjs/mongoose";
+import mongoose from "mongoose";
+import { UserSettings } from "./UserSettings.schema";
 
 export enum UserRole {
     USER = 'user',
@@ -27,6 +29,9 @@ export class User {
 
     @Prop({ type: Date, default: Date.now, required: true })
     updatedAt: Date;
+
+    @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'UserSettings', required: false })
+    settings?: UserSettings;
 }
 
 // Generate the Mongoose Schema

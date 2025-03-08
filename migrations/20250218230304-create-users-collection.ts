@@ -1,4 +1,4 @@
-const path = require('path');
+// const path = require('path');
 // TODO : fix the import to take from ../src/common/constants/migrationConstants instead of using the constants here
 // const { USERS_COLLECTION } = require(path.resolve(__dirname, '../src/common/constants/migrationConstants'));
 const USERS_COLLECTION = "users";

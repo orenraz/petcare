@@ -24,7 +24,7 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+[Nest](https://github.com/orenraz/petcare) Nest Backend for PetCare.
 
 ## Project setup
 
@@ -56,6 +56,25 @@ $ npm run test:e2e
 
 # test coverage
 $ npm run test:cov
+```
+
+## Run migrations
+
+```bash
+# create migration
+$ npm run migrate:create <migration_name>
+
+# run migrations in development
+$ npm run migrate-up:development
+
+# rollback migrations in development
+$ npm run migrate-down:development
+
+# run migrations in production
+$ npm run migrate-up:production
+
+# rollback migrations in production
+$ npm run migrate-down:production
 ```
 
 ## Deployment

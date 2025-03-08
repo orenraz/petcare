@@ -8,6 +8,7 @@ import productionConfig from './config/production.config';
 import developmentConfig from './config/development.config';
 import { UserModule } from './modules/users/users.module';
 import { LoggerMiddleware } from './common/middlewares/logger.middleware';
+import { UserSettingsModule } from './modules/userSettings/userSettings.module';
 
 // TODO: break down each init into a seperate function
 @Module({
@@ -26,6 +27,7 @@ import { LoggerMiddleware } from './common/middlewares/logger.middleware';
     }),
     HealthModule,
     UserModule,
+    UserSettingsModule,
   ],
   controllers: [AppController],
   providers: [],
