@@ -7,7 +7,7 @@ export class CreateUserSettingsDto {
     
     @IsBoolean()
     @IsOptional()
-    lastRecieveEmails?: boolean;
+    recieveEmails?: boolean;
     
     @IsBoolean()
     @IsOptional()

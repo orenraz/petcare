@@ -1,6 +1,7 @@
 import { UserRole } from "src/schemas/User.schema";
 import { IsEnum, IsNotEmpty, IsOptional, IsString, ValidateNested } from "class-validator";
 import { CreateUserSettingsDto } from "src/modules/userSettings/dto/CreateUserSettings.dto";
+import { Type } from "class-transformer";
 
 export class CreateUserDto {
     @IsNotEmpty()
@@ -25,6 +26,7 @@ export class CreateUserDto {
 
     @IsOptional()
     @ValidateNested()
+    @Type(() => CreateUserSettingsDto)
     settings?: CreateUserSettingsDto;
 
 }

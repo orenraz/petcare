@@ -47,6 +47,7 @@ export class UsersController{
         const isValid = mongoose.Types.ObjectId.isValid(id);
         if (!isValid) throw new HttpException('Invalid id', 400);
 
+        // TODO: remove hashPassord field and any other relevant field from the response
         const deletedUser = await this.userService.deleteUser(id);
         if (!deletedUser) throw new HttpException('User not found', 404);
         return deletedUser;

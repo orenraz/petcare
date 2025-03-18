@@ -2,12 +2,12 @@ import { IsBoolean, IsOptional, IsString } from "class-validator";
 
 export class UpdateUserSettingsDto {
     @IsBoolean()
-    @IsString()
+    @IsOptional()   
     recieveNotifications?: boolean;
     
     @IsBoolean()
     @IsOptional()
-    lastRecieveEmails?: boolean;
+    recieveEmails?: boolean;
     
     @IsBoolean()
     @IsOptional()
